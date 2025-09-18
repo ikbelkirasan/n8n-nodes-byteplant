@@ -6,6 +6,7 @@ import type {
 	IRequestOptions,
 } from 'n8n-workflow';
 import { ApplicationError, NodeConnectionType, NodeOperationError } from 'n8n-workflow';
+import { commonFields } from '../../utils/common-fields';
 
 export class ByteplantPhoneValidator implements INodeType {
 	description: INodeTypeDescription = {
@@ -86,14 +87,7 @@ export class ByteplantPhoneValidator implements INodeType {
 					},
 				],
 			},
-			{
-				displayName: 'Timeout',
-				name: 'Timeout',
-				default: 10,
-				placeholder: '',
-				type: 'number',
-				description: 'Timeout in seconds (default 10s, min 5s, max 300s)',
-			},
+			commonFields.Timeout,
 		],
 	};
 

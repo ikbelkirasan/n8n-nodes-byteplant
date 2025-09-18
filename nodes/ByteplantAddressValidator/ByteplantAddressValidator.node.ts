@@ -6,6 +6,7 @@ import type {
 	IRequestOptions,
 } from 'n8n-workflow';
 import { ApplicationError, NodeConnectionType, NodeOperationError } from 'n8n-workflow';
+import { commonFields } from '../../utils/common-fields';
 
 export class ByteplantAddressValidator implements INodeType {
 	description: INodeTypeDescription = {
@@ -46,6 +47,15 @@ export class ByteplantAddressValidator implements INodeType {
 				],
 			},
 			{
+				displayName: 'Country Code',
+				name: 'CountryCode',
+				default: '',
+				placeholder: '',
+				type: 'string',
+				description: 'Two-letter ISO 3166-1 country code',
+				required: true,
+			},
+			{
 				displayName: 'Street Address',
 				name: 'StreetAddress',
 				default: '',
@@ -59,7 +69,6 @@ export class ByteplantAddressValidator implements INodeType {
 				default: '',
 				placeholder: '',
 				type: 'string',
-				required: true,
 			},
 			{
 				displayName: 'Additional Address Info',
@@ -92,15 +101,6 @@ export class ByteplantAddressValidator implements INodeType {
 				placeholder: '',
 				type: 'boolean',
 				description: 'Whether to enable Geocoding',
-			},
-			{
-				displayName: 'Country Code',
-				name: 'CountryCode',
-				default: '',
-				placeholder: '',
-				type: 'string',
-				description: 'Two-letter ISO 3166-1 country code',
-				required: true,
 			},
 			{
 				displayName: 'Street Number',
@@ -137,14 +137,7 @@ export class ByteplantAddressValidator implements INodeType {
 				],
 				description: 'Output character set [us-ascii|utf-8]',
 			},
-			{
-				displayName: 'Timeout',
-				name: 'Timeout',
-				default: 10,
-				placeholder: '',
-				type: 'number',
-				description: 'Timeout in seconds (default 10s, min 5s, max 300s)',
-			},
+			commonFields.Timeout,
 		],
 	};
 
