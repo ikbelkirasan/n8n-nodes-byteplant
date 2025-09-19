@@ -4,7 +4,6 @@ import {
 	INodeProperties,
 	ICredentialTestRequest,
 } from 'n8n-workflow';
-import { getN8nVersion } from '../utils/get-n8n-version';
 
 export class ByteplantAddressValidatorApi implements ICredentialType {
 	name = 'byteplantAddressValidatorApi';
@@ -31,7 +30,6 @@ export class ByteplantAddressValidatorApi implements ICredentialType {
 		properties: {
 			qs: {
 				APIKey: '={{ $credentials.apiKey }}',
-				N8NVersion: getN8nVersion(),
 			},
 		},
 	};
@@ -40,9 +38,7 @@ export class ByteplantAddressValidatorApi implements ICredentialType {
 		request: {
 			baseURL: 'https://api.address-validator.net',
 			url: '/api/verify',
-			qs: {
-				N8NVersion: getN8nVersion(),
-			},
+			qs: {},
 			json: true,
 		},
 		rules: [
