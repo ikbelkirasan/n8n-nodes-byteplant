@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-byteplant",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Validate addresses, phone numbers and email addresses - with unparalleled precision in 240+ countries world-wide.",
 	"keywords": [
 		"n8n",
